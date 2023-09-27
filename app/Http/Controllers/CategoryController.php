@@ -16,7 +16,7 @@ class CategoryController extends Controller
         $categorias = json_decode($response->getBody(), true);
 
         return view ('dashboard/categories.index',[
-            "categories" =>$categories
+            "categories" =>$categories 
         ]);
     } catch (\Exception $e) {
         return response()->json(['error' => 'Error al consumir la API'], 500);
