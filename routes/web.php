@@ -22,4 +22,4 @@ Route::get('/api/categorias', [CategoryRestApiController::class, 'index']);
 Route::post('/api/categoriasCreate', [CategoryRestApiController::class, 'crearCategory']);
 Route::get('/api/categoryBy/{id}', [CategoryRestApiController::class, 'buscarById']);
 Route::get('/api/deleteCategory/{id}', [CategoryRestApiController::class, 'borrarCategory']);
-Route::post('/api/categoriasUpdate', [CategoryRestApiController::class, 'crearCategory']);
+Route::post('/api/categoriasUpdate', [CategoryRestApiController::class, 'modificarCategory']);
