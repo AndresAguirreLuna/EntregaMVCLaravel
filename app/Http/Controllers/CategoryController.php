@@ -15,6 +15,9 @@ class CategoryController extends Controller
         $response = $client->get('http://127.0.0.1:8000/api/categorias');
         $categorias = json_decode($response->getBody(), true);
 
+
+        // $categories = Category::all();
+
         return view ('dashboard/categories.index',[
             "categories" =>$categories 
         ]);
@@ -22,5 +25,4 @@ class CategoryController extends Controller
         return response()->json(['error' => 'Error al consumir la API'], 500);
     }
 }
-
 }
