@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\CategoryRestApiController;
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/api/categorias', [CategoryRestApiController::class, 'index']);
+Route::post('/api/categoriasCreate', [CategoryRestApiController::class, 'crearCategory']);
+Route::get('/api/categoryBy/{id}', [CategoryRestApiController::class, 'buscarById']);
+Route::get('/api/deleteCategory/{id}', [CategoryRestApiController::class, 'borrarCategory']);
+Route::post('/api/categoriasUpdate', [CategoryRestApiController::class, 'crearCategory']);
