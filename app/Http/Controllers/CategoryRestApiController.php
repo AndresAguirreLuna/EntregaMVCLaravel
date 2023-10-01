@@ -13,10 +13,6 @@ class CategoryRestApiController extends Controller
 
     public function crearCategory(Request $request)
     {
-        $request->validate([
-            'name'=>'required|min:3|max:15',
-            'description'=>'required|min:3|max:45',
-        ]);
         $categories = new Category();
         $categories->name=$request->input('name');
         $categories->description=$request->input('description');

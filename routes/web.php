@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CategoryRestApiController;
+use App\Http\Controllers\PostRestApiController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +25,9 @@ Route::post('/api/categoriasCreate', [CategoryRestApiController::class, 'crearCa
 Route::get('/api/categoryBy/{id}', [CategoryRestApiController::class, 'buscarById']);
 Route::get('/api/deleteCategory/{id}', [CategoryRestApiController::class, 'borrarCategory']);
 Route::post('/api/categoriasUpdate', [CategoryRestApiController::class, 'modificarCategory']);
+
+Route::get('/api/post', [PostRestApiController::class, 'index']);
+Route::post('/api/postCreate', [PostRestApiController::class, 'crearPost']);
+Route::get('/api/postBy/{id}', [PostRestApiController::class, 'buscarById']);
+Route::get('/api/deletePost/{id}', [PostRestApiController::class, 'borrarPost']);
+Route::post('/api/postUpdate', [PostRestApiController::class, 'modificarPost']);
