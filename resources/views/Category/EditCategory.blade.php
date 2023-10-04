@@ -9,23 +9,27 @@
 </head>
     
 <div class="row" style="width: 90%; margin: 0px auto; text-align: left" >
-    <h1>Modificar Categoria</h1>
+    <h3>Modificar Categoria</h3>
 </div>
+<br>
 <form action="{{ route('categoriasUpdate')}}" method="post">
     <main> 
         <div class="row" style="width: 90%; margin: 0px auto; text-align: left">
             <div class="from-group">
             <input type="hidden" name="id" id="id" value='{{ $categoriaEdit->id}}'>
                 <label for="name">Nombre</label>
+                <br>
                 <input type="text" class="form-control" name="name" id="name" value='{{ $categoriaEdit->name}}'>
                 </div>
                 <div class="from-group">
+                <br>
                 <label for="name">Description</label>
+                <br>
                 <input type="text" class="form-control" name="description" id="description" value='{{ $categoriaEdit->description}}'>
                 </div>
-            <br>
                 <div class="col s6">
-                    <button class="btn btn-success btn-sm" type="submit">Publicar</button>
+                <br>
+                    <button class="btn btn-success btn-sm" type="submit">Modificar</button>
                     </div>
             </div>
             </div>

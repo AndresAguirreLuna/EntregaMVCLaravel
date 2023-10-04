@@ -15,7 +15,7 @@
         <h3>
             <small class="text-muted">Consulta Categorias</small>
         </h3>
-        <a href="{{url('Category/CreateCategory')}}" class="btn btn-primary btn btn-sm">Nueva Categoria</a>
+        <a href="{{url('Category/CreateCategory')}}" class="btn btn-success">Nueva Categoria</a>
         <div class="row">
             <div class="col-12 col-sm-12" id="menu">
                     <table class="table table-striped" style="width: 80%; margin: 0px auto; text-align: center">
@@ -63,13 +63,13 @@
                             {{ $item->updated_at}}
                         </td>
                         <td>
-                        <a href="{{url('Category/'.$item->id.'/EditCategory')}}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                        <a href="{{url('Category/'.$item->id.'/EditCategory')}}" class="btn btn-warning"><i class="bi bi-pencil-square">...</i></a>
                         </td>
                         <td>
                         <form action="{{ route("categoriasDelete",$item->id)}}" method="post">
                             @method("DELETE")
                             @csrf
-                            <button class="btn btn-primary" type="submit"><i class="bi bi-file-earmark-x-fill"></i></button>
+                            <button class="btn btn-danger" type="submit"><i class="bi bi-file-earmark-x-fill">...</i></button>
                         </form></td>
                     @endforeach
                 
