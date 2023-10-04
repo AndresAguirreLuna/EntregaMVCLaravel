@@ -19,12 +19,16 @@ use App\Http\Controllers\PostRestApiController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/Category/CreateCategory', function () {
+    return view('Category.CreateCategory');
+});
+Route::get('/Category/{id}/EditCategory', [CategoryRestApiController::class, 'edit']);
 
 Route::get('/api/categorias', [CategoryRestApiController::class, 'index']);
-Route::post('/api/categoriasCreate', [CategoryRestApiController::class, 'crearCategory']);
+Route::post('/api/categoriasCreate', [CategoryRestApiController::class, 'crearCategory'])->name('categoriasCreate');
 Route::get('/api/categoryBy/{id}', [CategoryRestApiController::class, 'buscarById']);
-Route::get('/api/deleteCategory/{id}', [CategoryRestApiController::class, 'borrarCategory']);
-Route::post('/api/categoriasUpdate', [CategoryRestApiController::class, 'modificarCategory']);
+Route::delete('/api/deleteCategory/{id}', [CategoryRestApiController::class, 'borrarCategory'])->name('categoriasDelete');
+Route::post('/api/categoriasUpdate', [CategoryRestApiController::class, 'modificarCategory'])->name('categoriasUpdate');
 
 Route::get('/api/post', [PostRestApiController::class, 'index']);
 Route::post('/api/postCreate', [PostRestApiController::class, 'crearPost']);

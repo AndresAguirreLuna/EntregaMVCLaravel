@@ -8,16 +8,22 @@ class CategoryRestApiController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return response()->json($categories);
+        return view ('Category.IndexCategory',[
+            "categories" =>$categories
+        ]);
     }
 
     public function crearCategory(Request $request)
     {
-        $categories = new Category();
-        $categories->name=$request->input('name');
-        $categories->description=$request->input('description');
-        $categories->save();
-        return response()->json(['message' => 'Categoría creada con éxito', 'categoria' => $categories], 201);
+        $category = new Category();
+        $category->name=$request->input('name');
+        $category->description=$request->input('description');
+        $category->save();
+        
+        $categories = Category::all();
+        return view ('Category.IndexCategory',[
+            "categories" =>$categories
+        ]);
     }
 
     public function buscarById($id)
@@ -30,20 +36,29 @@ class CategoryRestApiController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
-        return response()->json(['message' => 'Categoría eliminada éxito'], 201);
-    }
+        
+        $categories = Category::all();
+        return view ('Category.IndexCategory',[
+            "categories" =>$categories
+        ]);}
 
     
     public function modificarCategory(Request $request)
     {
-        $request->validate([
-            'name'=>'required|min:3|max:15',
-            'description'=>'required|min:3|max:45',
-        ]);
         $category = Category::find($request->input('id'));
         $category->name=$request->input('name');
         $category->description=$request->input('description');
         $category->save();
-        return response()->json(['message' => 'Categoría modificada con éxito', 'categoria' => $category], 201);
+        
+        $categories = Category::all();
+        return view ('Category.IndexCategory',[
+            "categories" =>$categories
+        ]);
+}
+
+    public function edit($id)
+    {
+        $category=Category::find($id);
+        return view ('Category.EditCategory', ['categoriaEdit'=>$category]);
     }
 }
