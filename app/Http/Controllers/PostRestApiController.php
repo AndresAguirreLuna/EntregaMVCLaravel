@@ -11,7 +11,9 @@ class PostRestApiController extends Controller
     public function index()
     {
         $post = Post::all();
-        return response()->json($post);
+        return view ('Post.IndexPost',[
+            "post" =>$post
+        ]);
     }
 
     public function crearPost(Request $request)
@@ -20,10 +22,14 @@ class PostRestApiController extends Controller
         $post->name=$request->input('name');
         $post->category_id=$request->input('category_id');
         $post->description=$request->input('description');
-        $post->status=$request->input('status');
+        $post->status='Post';
         $post->save();
-        return response()->json(['message' => 'Post creada con éxito', 'post' => $post], 201);
-    }
+
+        $post = Post::all();
+        return view ('Post.IndexPost',[
+            "post" =>$post
+        ]);
+     }
 
 
     public function buscarById($id)
@@ -36,7 +42,12 @@ class PostRestApiController extends Controller
     {
         $post = Post::find($id);
         $post->delete();
-        return response()->json(['message' => 'Post eliminada éxito'], 201);
+
+        $post = Post::all();
+        return view ('Post.IndexPost',[
+            "post" =>$post
+        ]);
+        
     }
 
     
@@ -46,9 +57,19 @@ class PostRestApiController extends Controller
         $post->name=$request->input('name');
         $post->category_id=$request->input('category_id');
         $post->description=$request->input('description');
-        $post->status=$request->input('status');
+        $post->status='Post';
         $post->save();
-        return response()->json(['message' => 'Post modificada con éxito', 'Post' => $post], 201);
-    }
+
+        $post = Post::all();
+        return view ('Post.IndexPost',[
+            "post" =>$post
+        ]); }
+
+
+        public function edit($id)
+        {
+            $post=Post::find($id);
+            return view ('Post.EditarPost', ['postEdit'=>$post]);
+        }
 
 }

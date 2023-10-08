@@ -17,26 +17,25 @@
         <div class="row" style="width: 90%; margin: 0px auto; text-align: left">
             <div class="from-group">
             <input type="hidden" name="id" id="id" value='{{ $postEdit->id}}'>
-                <label for="name">Id</label>
-                <br>
-                <input type="text" class="form-control" name="id" id="id" value='{{ $postEdit->id}}'>
-                </div>
+            <br>
                 <div class="from-group">
                 <br>
                 <label for="name">Nombre</label>
                 <br>
                 <input type="text" class="form-control" name="name" id="name" value='{{ $postEdit->name}}'>
+                </div>
+                <div class="from-group">
+                <br>
+                <label for="name">Categoria</label>
+                <br>
+                <input type="text" class="form-control" name="category_id" id="category_id" value='{{ $postEdit->category_id}}'>
+                </div>
                 <div class="from-group">
                 <br>
                 <label for="name">Description</label>
                 <br>
                 <input type="text" class="form-control" name="description" id="description" value='{{ $postEdit->description}}'>
                 </div>
-                <div class="from-group">
-                <br>
-                <label for="name">Status</label>
-                <br>
-                <input type="text" class="form-control" name="status" id="status" value='{{ $postEdit->status}}'>
                 <div class="col s6">
                 <br>
                     <button class="btn btn-success btn-sm" type="submit">Modificar</button>

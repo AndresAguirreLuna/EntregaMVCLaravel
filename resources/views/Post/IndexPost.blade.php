@@ -18,7 +18,7 @@
         <h3>
             <small class="text-muted">Consulta Post</small>
         </h3>
-        <a href="{{url('Category/CreateCategory')}}" class="btn btn-success">Nuevo Post</a>
+        <a href="{{url('Post/CreatePost')}}" class="btn btn-success">Nuevo Post</a>
         <div class="row">
             <div class="col-12 col-sm-12" id="menu">
                     <table class="table table-striped" style="width: 80%; margin: 0px auto; text-align: center">
@@ -54,7 +54,7 @@
                         </tr>
                     </thead>
                 <tbody>
-                    @foreach ($posts    as $item)
+                    @foreach ($post    as $item)
                     <tr>
                         <td>
                             {{ $item->id }}
@@ -78,7 +78,7 @@
                             {{ $item->updated_at}}
                         </td>
                         <td>
-                        <a href="{{url('Post/'.$item->id.'/EditPost')}}" class="btn btn-warning"><i class="bi bi-pencil-square">...</i></a>
+                        <a href="{{url('post/'.$item->id.'/EditPost')}}" class="btn btn-warning"><i class="bi bi-pencil-square">...</i></a>
                         </td>
                         <td>
                         <form action="{{ route("postDelete",$item->id)}}" method="post">
