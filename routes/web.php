@@ -30,8 +30,12 @@ Route::get('/api/categoryBy/{id}', [CategoryRestApiController::class, 'buscarByI
 Route::delete('/api/deleteCategory/{id}', [CategoryRestApiController::class, 'borrarCategory'])->name('categoriasDelete');
 Route::post('/api/categoriasUpdate', [CategoryRestApiController::class, 'modificarCategory'])->name('categoriasUpdate');
 
+Route::get('/Post/CreatePost', function () {
+    return view('post.CreatePost');
+});
+Route::get('/post/{id}/Editpost', [CategoryRestApiController::class, 'edit']);
 Route::get('/api/post', [PostRestApiController::class, 'index']);
-Route::post('/api/postCreate', [PostRestApiController::class, 'crearPost']);
+Route::post('/api/postCreate', [PostRestApiController::class, 'crearPost'])->name('postCreate');
 Route::get('/api/postBy/{id}', [PostRestApiController::class, 'buscarById']);
-Route::get('/api/deletePost/{id}', [PostRestApiController::class, 'borrarPost']);
-Route::post('/api/postUpdate', [PostRestApiController::class, 'modificarPost']);
+Route::get('/api/deletePost/{id}', [PostRestApiController::class, 'borrarPost'])->name('postDelete');
+Route::post('/api/postUpdate', [PostRestApiController::class, 'modificarPost'])->name('postUpdate');
